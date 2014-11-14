@@ -1,10 +1,29 @@
 var bscore = 0;
 
+$(window).bind('load', function() {
+   // $.preload(["Images/fon.jpg"])
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    
+    ctx.drawImage(img1, 0, 0, 500, 500);
+    
+})
+    
+
+function render() {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = "Images/fon.jpg";
+    ctx.drawImage(img1, 0, 0, 500, 500);
+}
+
+
 function main() {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var score;
-    
+   
 	document.onkeydown = Pressk;
 	kvxy = document.getElementById('canvas').width;
 	cw = 20;
@@ -174,8 +193,9 @@ function main() {
 		
 		function paint() {
 		
-		ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, 500, 500);
+		
+        ctx.drawImage(img1, 0, 0, 500, 500);
+            
         ctx.strokeStyle = "black";
         ctx.strokeRect(0, 0, 500, 500);
 		

@@ -5,25 +5,20 @@ $(window).bind('load', function() {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     
-    ctx.drawImage(img1, 0, 0, 500, 500);
+    //ctx.drawImage(img1, 0, 0, 500, 500);
     
 })
     
 
-function render() {
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    var img = new Image();
-    img.src = "Images/fon.jpg";
-    ctx.drawImage(img1, 0, 0, 500, 500);
-}
+var animu = false;
 
 
 function main() {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var score;
-   
+    var powor = true;
+    
 	document.onkeydown = Pressk;
 	kvxy = document.getElementById('canvas').width;
 	cw = 20;
@@ -42,7 +37,7 @@ function main() {
 		
 		function Pressk(e) {
 		
-		
+		if (powor) {
 		switch (e.keyCode) {
 		
 			case (40):
@@ -71,8 +66,8 @@ function main() {
 			
 			break;
 		}
-		
-		
+		powor = false;
+        }
 		}
 	
 	    function paint_cell(x, y, color) {
@@ -164,7 +159,7 @@ function main() {
 				snake_len++;
 				spawn_aple();
 			}
-			
+			powor = true;
 		}
 		
 		function Randomnum(min, max) {
@@ -192,12 +187,14 @@ function main() {
 		}
 		
 		function paint() {
-		
-		
-        ctx.drawImage(img1, 0, 0, 500, 500);
             
-        ctx.strokeStyle = "black";
-        ctx.strokeRect(0, 0, 500, 500);
+		ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 500, 500);
+		
+        if (animu) {
+        ctx.drawImage(img1, 0, 0, 500, 500);
+        }
+        
 		
 		for (i in snake_a) {
 			paint_cell(snake_a[i].x,snake_a[i].y,"#07071C");
@@ -227,8 +224,8 @@ function main() {
 		    //alert(snake_a[0].y);
 			moving();
 			paint();
-            document.getElementById('score').innerHTML = '<p> ' + score + ' </p>';
-            document.getElementById('Bscore').innerHTML = '<p> ' + bscore + ' </p>';
+            document.getElementById('score').innerHTML = score;
+            document.getElementById('Bscore').innerHTML = bscore;
 			
 		}
 		

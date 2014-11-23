@@ -6,17 +6,30 @@
 body {
     
     margin: 0;
-    background: #07071C;
+    background: #FFDA6B;
+}
+
+header.page-header {
+    position: relative;
+    min-height: 20px;
+    padding: 20px;
+    z-index: 5;
+    color: white;
+    background: #E9B825;
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px;
+    box-shadow: 0 0 5px 0 #333;
 }
 
 .wind {
+    background: #FFEEBA;
     float: left;
     width: auto;
  	margin: 100px 15%;
     height: 600px;
 	margin:50px auto;
 	text-align:left;
-	border:1px solid #F60;
+	
 	
 }
 
@@ -27,21 +40,10 @@ body {
     
 }
 
-#score {
-margin-left: 20px;
-    color: white;
-
-}
-
-#bscore {
-margin-left: 20px;
-    color: white;
-
-}
-
-#stat p {
-margin-left: 20px;
-    color: white;
+.p {
+    font: bold 16pt Consolas;
+    margin-left: 20px;
+    color: black;
 }
 
 #game {
@@ -53,8 +55,8 @@ margin-right: 50px
 #game canvas {
  	margin:0px 50px;
 	text-align:left;
-	border:1px solid #F60;
-	background-color:#EEE;
+	border: 1px solid black;
+	background-color: white;
 }
 
 #game button {
